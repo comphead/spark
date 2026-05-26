@@ -37,7 +37,7 @@ case class SQLFunctionNode(
   override protected def withNewChildInternal(newChild: LogicalPlan): SQLFunctionNode =
     copy(child = newChild)
 
-  // Throw a reasonable error message when trying to call a SQL UDF with TABLE argument(s).
+  // Throw a reasonable error message when trying to call a SQL UDF with TABLE argument(s). bbb
   if (child.containsPattern(FUNCTION_TABLE_RELATION_ARGUMENT_EXPRESSION)) {
     throw QueryCompilationErrors
       .tableValuedArgumentsNotYetImplementedForSqlFunctions("call", toSQLId(function.name.funcName))
